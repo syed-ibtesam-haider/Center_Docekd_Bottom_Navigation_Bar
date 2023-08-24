@@ -1,0 +1,85 @@
+//Center Docked Navigation Bar
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: MyHomePage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.black45,
+        title: const Text(
+          "Center Docked Nav Bar"
+        ),
+      ),
+      body: const Center(
+        child: SizedBox()
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: ClipRRect(
+        borderRadius: BorderRadius.circular(50),
+        child: FloatingActionButton(
+          backgroundColor: Colors.black45,
+          onPressed: (){},
+          child: const Icon(Icons.add_rounded,color: Colors.white,size: 30,),
+        ),
+      ),
+      bottomNavigationBar: const BottomAppBar(
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        notchMargin: 5.0,
+        color: Colors.black45,
+        shape: CircularNotchedRectangle(),
+        child: SizedBox(
+          height: 60,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 70,
+                child: Icon(Icons.home_outlined,color: Colors.white,size: 30,),
+              ),
+              SizedBox(
+                width: 80,
+                child: Icon(Icons.search_outlined,color: Colors.white,size: 30,),
+              ),
+              SizedBox(
+                width: 25,
+              ),
+              SizedBox(
+                width: 80,
+                child: Icon(Icons.notifications_outlined,color: Colors.white,size: 30,),
+              ),
+              SizedBox(
+                width: 70,
+                child: Icon(Icons.person_outline,color: Colors.white,size: 30,),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
